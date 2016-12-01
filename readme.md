@@ -83,7 +83,7 @@ With a partner, write down some differences in syntax, "nice" or otherwise, you 
 
 #### Variables
 
-No longer need to precede new variables with `var`. Just use the name of the variable!
+No longer need to precede new variables with `var` , `let`, or `const`. Just use the name of the variable!
 * Variables are instantiated as they are used.
 * Written in `snake_case`. That means all lower case with words separated by underscores.
 * You should still keep names semantic!
@@ -95,7 +95,7 @@ my_favorite_animal = "flying squirrel"
 # => "flying squirrel"
 ```
 
-Although we don't use `var`, there is still syntax to designate whether a variable is local or global.
+Although we don't use `var`, `let`, or `const`, there is still syntax to designate whether a variable is local or global.
 * `$` makes it global (e.g., `$my_number`)
 * Undesignated implies `local` (e.g., `my_number`)
 * All-caps makes it a constant. That is, Ruby will give you warnings if you try to change the value. (e.g., `PI = 3.14`)
@@ -177,7 +177,7 @@ How old are you?:
 
 ### Data Types (15 minutes / 0:40)
 
-Spend 15 minutes reading through everything up until [Data Types Exercises](https://github.com/ga-wdi-lessons/ruby-intro/tree/master#data-type-exercises-15-minutes--055).  
+Spend 15 minutes reading through everything up until **Data Types Exercises**.  
 
 #### Why do we have to read all this ourselves?
 
@@ -193,7 +193,7 @@ Everything in Ruby is an **object**.
 
 #### Numbers
 
-Ruby uses same arithmetic operators as Javascript
+Ruby uses the same arithmetic operators as Javascript
 * `+`, `-`, `*`, `/`, `%`
 * Same order of operations too: P.E.M.D.A.S.  
 
@@ -263,22 +263,22 @@ Not only can you concatenate strings, now you can multiply them too! Remember we
 Sometimes you will want to print out a string that incorporates a variable. For example...
 
 ```rb
-my_name = "Nayana"
-# => "Nayana"
+my_name = "Goku"
+# => "Goku"
 
 puts "Hi my name is: " + my_name
-# Hi my name is: Nayana
+# Hi my name is: Goku
 # => nil
 ```
 
 This works fine. Things aren't so simple when that variable is of a different data type. Like a number...
 
 ```rb
-class_number = 984
-# => 984
+min_power_level = 9000
+# => 9000
 
-puts "I am teaching WDI " + class_number
-# TypeError: no implicit conversion of Fixnum into String from (pry):26:in `+'
+puts "My power level is over " + min_power_level
+# TypeError: no implicit conversion of Fixnum into String from (pry):4:in `+'
 ```
 
 In cases like the above, you either need to convert the variable to a string using `.to_s` or use something called "interpolation."
@@ -286,11 +286,11 @@ In cases like the above, you either need to convert the variable to a string usi
 * No Javascript equivalent [(until ES6 came along!)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
 
 ```rb
-class_number = 984
-# => 984
+min_power_level = 9000
+# => 9000
 
-puts "I am teaching WDI #{class_number}"
-# I am teaching WDI 984
+puts "My power level is over #{min_power_level}"
+# My power level is over 9000
 # => nil
 ```
 
@@ -368,19 +368,19 @@ b = a
 # => "hi there"
 
 a.object_id
-# => 70096095324100
+# => 70295613250200
 
 b.object_id
-# => 70096095324100
+# => 70295613250200
 
 a = "not here"
 # => "not here"
 
 a.object_id
-# => 70096094155620
+# => 70295609398280
 
 b.object_id
-# => 70096095324100
+# => 70295613250200
 ```
 
 #### The Bang Symbol (`!`)
@@ -392,17 +392,17 @@ Methods with an `!` attached to the end of them usually mean that they will modi
 * Things can get tricky when you have multiple variables pointing at the same value. For example...
 
 ```rb
-a = "cheeseburger"
-# => "cheeseburger"
+a = "veggie burger"
+# => "veggie burger"
 
 b = a
-# => "cheeseburger"
+# => "veggie burger"
 
 b.upcase!
-# => "CHEESEBURGER"
+# => "VEGGIE BURGER"
 
 a
-# => "CHEESEBURGER"
+# => "VEGGIEBURGER"
 ```
 ##### Symbols
 
@@ -458,7 +458,7 @@ Test out what you just learned with this [Ruby variables quiz](https://github.co
 
 ## Data Collections (10 minutes / 1:25)
 
-Read everything up until [Data Collections Exercises](https://github.com/ga-wdi-lessons/ruby-intro/tree/master#data-collections-exercises-15-minutes--140).
+Read everything up until **Data Collections Exercises**.
 
 ### Arrays
 
@@ -531,7 +531,7 @@ numbers.pop
 # => 9
 
 numbers
-# => [1, 2, 3, 4, 5]
+# => [1, 2, 3, 4, 5, 6, 7, 8]
 ```
 
 ##### Sort
@@ -569,59 +569,59 @@ A unordered, "dictionary-like" collection organized by key-value pairs. Very sim
 
 ```rb
 wdi_class = {
-   teacher: "John",  
-   students: [ "Yacko", "Wacko", "Dot" ],  
-   classroom: 2,  
-   in_session: true,  
-   schedule: {  
-     morning: "Ruby Basics",
-     afternoon: "Enumerables"
-   }
- }  
-# => {:teacher=>"John", :students=>["Yacko", "Wacko", "Dot"], :classroom=>2, :in_session=>true, :schedule=>{:morning=>"Ruby Basics", :afternoon=>"Enumerables"}}
+  teacher: "Keane",  
+  students: [ "Blossom", "Bubbles", "Buttercup" ],  
+  classroom: 423,  
+  in_session: true,  
+  schedule: {  
+    morning: "Ruby Basics",
+    afternoon: "Enumerables"
+  }
+}  
+# => {:teacher=>"Keane", :students=>["Blossom", "Bubbles", "Buttercup"], :classroom=>423, :in_session=>true, :schedule=>{:morning=>"Ruby Basics", :afternoon=>"Enumerables"}}
 ```
 
 Accessing hash values...  
 
 ```rb
 wdi_class[:teacher]
-# => "John"
-``` 
+# => "Keane"
+```
 
 Modifying hash values...
 
 ```rb
-wdi_class[:teacher] = "Jack"
-# => "Jack"
+wdi_class[:teacher] = "Mojo Jojo"
+# => "Mojo Jojo"
 ```
 
 You can also use strings as hash keys.
 
 ```rb
 wdi_class = {
-   "teacher" => "John",  
-   "students" => [ "Yacko", "Wacko", "Dot" ],  
-   "classroom" => 2,  
-   "in_session" => true,  
-   "schedule" => {  
-     "morning" => "Ruby Basics",
-     "afternoon" => "Enumerables"
-   }
+  "teacher" => "Keane",  
+  "students" => [ "Blossom", "Bubbles", "Buttercup" ],  
+  "classroom" => 423,  
+  "in_session" => true,  
+  "schedule" => {  
+    "morning" => "Ruby Basics",
+    "afternoon" => "Enumerables"
+  }
 }  
 ```
 
 Then can access in this way...
 
 ```rb
-wdi_class["teacher"] = "John"
-# => "John"
+wdi_class["teacher"]
+# => "Keane"
 ```
 
 And modify...
 
 ```rb
-wdi_class["teacher"] = "Jack"
-# => "Jack"
+wdi_class["teacher"] = "Mojo Jojo"
+# => "Mojo Jojo"
 ```
 
 > Note the use of `=>` (or "hash rockets") instead of `:` when using strings as keys.  
@@ -653,23 +653,23 @@ classroom = {
 # => {:room=>1}
 
 locations = {
- location_one: "DC",  
- location_two: "NY",  
- location_three: "Boston"  
+ location_one: "Providence",  
+ location_two: "Boston",  
+ location_three: "DC"  
 }  
-# => {:location_one=>"DC", :location_two=>"NY", :location_three=>"Boston"}
+# => {:location_one=>"Providence", :location_two=>"Boston", :location_three=>"DC"}
 
 silly_hash = classroom.merge( locations )
-# => {:room=>1, :location_one=>"DC", :location_two=>"NY", :location_three=>"Boston"}
+# => {:room=>1, :location_one=>"Providence", :location_two=>"Boston", :location_three=>"DC"}
 
 classroom
 # => {:room=>1}
 
 locations
-# => {:location_one=>"DC", :location_two=>"NY", :location_three=>"Boston"}
+# => {:location_one=>"Providence", :location_two=>"Boston", :location_three=>"DC"}
 
 silly_hash
-# => {:room=>1, :location_one=>"DC", :location_two=>"NY", :location_three=>"Boston"}
+# => {:room=>1, :location_one=>"Providence", :location_two=>"Boston", :location_three=>"DC"}
 ```
 
 ### Ranges
@@ -691,7 +691,7 @@ Use ranges to quickly generate arrays of data types.
 
 Complete the second set of exercises in [this repo](https://github.com/ga-wdi-exercises/ruby-basics-exercises).
 
-If you finish this section early, feel free to try out one of the [Additional Exercises](https://github.com/ga-wdi-lessons/ruby-intro#additional-practice) located at the bottom of the lesson plan.
+If you finish this section early, feel free to try out one of the [Additional Exercises](https://github.com/tvlangley/ruby-intro#additional-practice) located at the bottom of the lesson plan.
 
 ### Exercise Review (10 minutes / 1:50)
 
@@ -716,8 +716,8 @@ end
 double( 3 )
 # => 6
 
-double 3
-# => 6
+double 4
+# => 8
 ```
 
 You may have noticed that we use the same `return` notation as Javascript. This is called an **explicit return**, because we identify what exactly we want returned from the function.  
@@ -735,8 +735,8 @@ end
 double( 3 )
 # => 6
 
-double 3
-# => 6
+double 4
+# => 8
 ```
 
 Ruby methods can also establish default argument values.
