@@ -770,7 +770,7 @@ double
 ## Resources
 * [GA DC Lesson](https://github.com/ga-wdi-lessons/ruby-intro)
 * [Learn X in Y minutes: Ruby](https://learnxinyminutes.com/docs/ruby/)
-* [Chris Pine's Learn to Program](https://pine.fm/LearnToProgram/chap_00.html)
+* [Code School: Ruby](https://www.codeschool.com/learn/ruby) (Ruby Bits 1 and 2)
 * [Ruby Monk](https://rubymonk.com/)
 * [Why's Poignant Guide to Ruby](http://poignant.guide/book/chapter-2.html)
 * [Ruby Koans](http://rubykoans.com/)
