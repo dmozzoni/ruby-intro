@@ -768,7 +768,7 @@ double
 * How many values can a method return? Which methods don't return anything?
 
 ## Resources
-* [GA DA Lesson](https://github.com/ga-wdi-lessons/ruby-intro)
+* [GA DC Lesson](https://github.com/ga-wdi-lessons/ruby-intro)
 * [Learn X in Y minutes: Ruby](https://learnxinyminutes.com/docs/ruby/)
 * [Chris Pine's Learn to Program](https://pine.fm/LearnToProgram/chap_00.html)
 * [Ruby Monk](https://rubymonk.com/)
